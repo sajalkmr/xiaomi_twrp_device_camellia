@@ -1,0 +1,31 @@
+service load_vendor_modules /system/bin/modprobe -a -d /vendor/lib/modules
+    class core
+    user root
+    group root system
+    oneshot
+    disabled
+
+on property:recovery.load_modules=1
+    start load_vendor_modules
+
+on boot
+    # Trigger vendor module loading
+    setprop recovery.load_modules 1
+    
+    # Wait for modules to load
+    sleep 2
+    
+    # Initialize input devices
+    trigger input_device_setup
+
+on input_device_setup
+    # Set up NVT touchscreen
+    chmod 0666 /dev/input/event*
+    chmod 0666 /dev/nvt_ts
+    
+    # Load NVT specific modules if they exist
+    insmod /vendor/lib/modules/nt36xxx.ko
+    insmod /vendor/lib/modules/nova_0flash_mmi.ko
+    
+    # Set touchscreen properties
+    setprop ro.hardware.touchscreen nvt 

@@ -90,3 +90,30 @@ TW_EXTRA_LANGUAGES := true
 TW_SCREEN_BLANK_ON_BOOT := true
 TW_INPUT_BLACKLIST := "hbtp_vm"
 TW_USE_TOOLBOX := true
+
+# Touch configuration for NVT
+TW_LOAD_VENDOR_MODULES := true
+TW_CUSTOM_CPU_TEMP_PATH := "/sys/devices/virtual/thermal/thermal_zone1/temp"
+TARGET_USE_CUSTOM_LUN_FILE_PATH := "/config/usb_gadget/g1/functions/mass_storage.0/lun.%d/file"
+
+# Display configuration  
+TW_BRIGHTNESS_PATH := "/sys/class/leds/lcd-backlight/brightness"
+TW_MAX_BRIGHTNESS := 2047
+TW_DEFAULT_BRIGHTNESS := 1200
+
+# Touch drivers for NVT
+TW_INCLUDE_NTFS_3G := true
+TW_NO_SCREEN_TIMEOUT := true
+TW_EXCLUDE_TWRPAPP := true
+
+# MediaTek specific configurations
+TW_USE_MODEL_HARDWARE_ID_FOR_DEVICE_ID := true
+TW_DELAY_TOUCH_INIT_MS := 300
+TW_INCLUDE_RESETPROP := true
+TW_OVERRIDE_SYSTEM_PROPS := \
+    "ro.build.date.utc;ro.bootimage.build.date.utc=ro.build.date.utc;ro.odm.build.date.utc=ro.build.date.utc;ro.product.build.date.utc=ro.build.date.utc;ro.system.build.date.utc=ro.build.date.utc;ro.system_ext.build.date.utc=ro.build.date.utc;ro.vendor.build.date.utc=ro.build.date.utc"
+
+# Fix for NVT touch in recovery
+RECOVERY_TOUCHSCREEN_SWAP_XY := false
+RECOVERY_TOUCHSCREEN_FLIP_X := false
+RECOVERY_TOUCHSCREEN_FLIP_Y := false

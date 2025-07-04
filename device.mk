@@ -50,3 +50,16 @@ PRODUCT_PACKAGES += \
     update_engine \
     update_verifier \
     update_engine_sideload
+
+# NVT Touchscreen support for recovery
+PRODUCT_PACKAGES += \
+    libinput \
+    libevdev
+
+# Recovery modules and drivers
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/recovery/root/load_vendor_modules.rc:$(TARGET_COPY_OUT_RECOVERY)/root/load_vendor_modules.rc
+
+# Input device configuration
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/recovery/root/init.recovery.mt6833.rc:$(TARGET_COPY_OUT_RECOVERY)/root/init.recovery.mt6833.rc

@@ -29,3 +29,25 @@ on post-fs
     symlink /dev/block/platform/bootdevice/by-name/preloader_b /dev/block/by-name/preloader_ufs_b
 
     exec u:r:update_engine:s0 root root -- /system/bin/mtk_plpath_utils
+
+on boot
+    # Load NVT touchscreen driver
+    insmod /vendor/lib/modules/nt36xxx.ko
+    
+    # Set touchscreen permissions
+    chmod 0664 /dev/nvt_ts
+    chown system system /dev/nvt_ts
+    
+    # Input device configuration
+    chmod 0664 /sys/class/input/input*/enable
+    chown system system /sys/class/input/input*/enable
+    
+    # Touch firmware loading
+    chmod 0664 /sys/firmware/nvt_ts/*
+    chown system system /sys/firmware/nvt_ts/*
+
+on property:recovery.setup_complete=1
+    # Ensure touchscreen is ready
+    write /sys/class/input/input0/enable 1
+    write /sys/class/input/input1/enable 1
+    write /sys/class/input/input2/enable 1
