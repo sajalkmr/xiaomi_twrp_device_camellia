@@ -1,8 +1,5 @@
 # TWRP Device Tree for Xiaomi/Redmi/POCO (camellia)
 
-![GitHub](https://img.shields.io/github/license/sajalkmr/xiaomi_twrp_device_camellia)
-![GitHub repo size](https://img.shields.io/github/repo-size/sajalkmr/xiaomi_twrp_device_camellia)
-![GitHub last commit](https://img.shields.io/github/last-commit/sajalkmr/xiaomi_twrp_device_camellia)
 
 > **Forked from:** [OrangeFoxRecovery/device_xiaomi_camellia](https://github.com/OrangeFoxRecovery/device_xiaomi_camellia)  
 > **Repository:** [sajalkmr/xiaomi_twrp_device_camellia](https://github.com/sajalkmr/xiaomi_twrp_device_camellia)
@@ -32,7 +29,6 @@
 
 ✅ **Working Features:**
 - [x] ADB & MTP
-- [x] Display & Touch (NVT Fixed)
 - [x] Storage (Internal/External)
 - [x] USB OTG
 - [x] Vibration
@@ -43,15 +39,6 @@
 - [x] Flash ZIP files
 - [x] Reboot options
 
-## Bug Fixes Included
-
-### NVT Touchscreen Fix ✅
-This device tree includes comprehensive fixes for NVT (Novatek) touchscreen issues:
-- Automatic NVT driver loading (`nt36xxx.ko`)
-- Proper input device initialization
-- Touch delay configuration (300ms)
-- Vendor module loading support
-- Display brightness controls
 
 ## Requirements
 
@@ -160,7 +147,6 @@ xiaomi_twrp_device_camellia/
 ## Known Issues & Solutions
 
 ### Issue: Touch not working in recovery
-**Solution:** ✅ **FIXED** - NVT touchscreen drivers and proper initialization included
 
 ### Issue: Decryption not working
 **Solution:** Ensure proper vendor files are present in `/vendor` partition
@@ -168,23 +154,6 @@ xiaomi_twrp_device_camellia/
 ### Issue: MTP not working
 **Solution:** Try different USB cables and enable USB debugging before booting recovery
 
-## Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/improvement`)
-3. Commit your changes (`git commit -am 'Add improvement'`)
-4. Push to the branch (`git push origin feature/improvement`)
-5. Open a Pull Request
-
-## Credits
-
-- **TWRP Team** - For the amazing recovery
-- **OrangeFoxRecovery** - Original device tree foundation
-- **SebaUbuntu** - TWRP device tree generator
-- **Xiaomi** - For the device
-- **MediaTek** - For the chipset
-- **LineageOS** - Device tree references
-- **Android Community** - For continuous support and development
 
 ## Disclaimer
 
@@ -193,6 +162,3 @@ xiaomi_twrp_device_camellia/
 - This is for educational and development purposes
 - We are not responsible for bricked devices
 
-## Support
-
-- **Issues:** [Open an issue](https://github.com/sajalkmr/xiaomi_twrp_device_camellia/issues) in this repository
